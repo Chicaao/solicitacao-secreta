@@ -1,0 +1,7 @@
+{
+    "SS": {
+        "RequestButtonTitle": "Request Secret Roll",
+        "DialogTitle": "Request Roll: {name}",
+        "CancelButton": "Cancel"
+    }
+}

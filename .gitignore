@@ -1,0 +1,10 @@
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração de IDEs
+.vscode/
+.idea/
+
+# Pasta de dependecinas do Node.js (caso necessario no futuro)
+node_modules/

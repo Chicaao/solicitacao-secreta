@@ -1,0 +1,43 @@
+{
+    "id": "solicitacao-secreta",
+    "title": "Solicitação Secreta",
+    "description": "Permite que o Mestre solicite rolagens de perícia cegas aos jogadores",
+    "version": "1.0.1",
+    "compatibility": {
+        "minimum": "11",
+        "verified": "12"
+    },
+    "authors": [
+        {
+            "name": "Chico"
+        }
+    ],
+    "relationships": {
+        "systems": [
+            {
+                "id": "dnd5e",
+                "type": "system",
+                "compatibility": {}
+            }
+        ]
+    },
+    "esmodules": [
+        "scripts/main.js"
+    ],
+    "styles": [
+        "styles/style.css"
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "languages/en.json"
+        },
+        {
+            "lang": "pt-BR",
+            "name": "Português (Brasil)",
+            "path": "languages/pt-BR.json"
+        }
+    ],
+    "socket": true
+}

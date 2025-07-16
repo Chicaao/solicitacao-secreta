@@ -1,0 +1,12 @@
+.dialog-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.skill-button:hover {
+    background-color: #ff6400;
+    color: white;
+    cursor: pointer;
+}
