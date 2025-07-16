@@ -26,7 +26,7 @@ Um módulo simples para o Foundry VTT que permite ao Mestre solicitar uma rolage
 1.  No menu de Configuração do Foundry VTT, vá para a aba "Add-on Modules".
 2.  Clique no botão "Install Module".
 3.  Cole a seguinte URL no campo "Manifest URL" e clique em "Install":
-    `URL_DO_SEU_MODULE.JSON_NO_GITHUB` (quando você o publicar)
+    `https://github.com/Chicaao/solicitacao-secreta/releases/latest/download/module.json`
 
 ## Licença
 
