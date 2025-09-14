@@ -2,6 +2,7 @@
     "SS": {
         "RequestButtonTitle": "Solicitar Rolagem Secreta",
         "DialogTitle": "Solicitar Rolagem: {name}",
-        "CancelButton": "Cancelar"
+        "CancelButton": "Cancelar",
+        "NoOwnerWarning": "Não foi possível encontrar um proprietário ativo e que não seja Mestre para o token selecionado."
     }
 }
