@@ -44,9 +44,12 @@ const openSkillSelectionDialog = (actor) => {
         render: (html) => {
             html.on('click', '.skill-button', (event) => {
                 const skillId = $(event.currentTarget).data('skill');
-                const ownerId = Object.values(actor.ownership)
-                    .filter(o => o.level === ConstantSourceNode.DOCUMENT_OWNERSHIP_LEVELS.OWNER)
-                    .map(o => o.id)[0];
+
+                const owners = Object.entries(actor.ownership)
+                    .filter(([id, level]) => level === CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER && game.users.get(id)?.active && !game.users.get(id)?.isGM)
+                    .map(([id]) => id);
+
+                const ownerId = owners[0];
 
                 if (ownerId) {
                     game.socket.emit(socketName, {
@@ -55,6 +58,9 @@ const openSkillSelectionDialog = (actor) => {
                         skillId: skillId,
                         targetUserId: ownerId
                     });
+                } else {
+                    // Usa a chave de tradução para a notificação
+                    ui.notifications.warn(game.i18n.localize("SS.NoOwnerWarning"));
                 }
 
                 html.closest('.dialog').find('.close').click();
@@ -67,18 +73,11 @@ const onSocketMessage = (data) => {
     if (data.type === 'REQUEST_SKILL_ROLL' && data.targetUserId === game.user.id) {
         const actor = game.actors.get(data.actorId);
         if (actor) {
-            actor.setFlag('solicitacao-secreta', 'nextRollIsSecret', true);
-            actor.rollSkill(data.skillId);
+            // Passa a opção blind diretamente para o método rollSkill
+            actor.rollSkill(data.skillId, { blind: true });
         }
     }
 };
-
-Hooks.on('dnd5e.preRollSkill', (actor, rollConfig, skillId) => {
-    if (actor.getFlag('solicitacao-secreta', 'nextRollIsSecret')) {
-        rollConfig.blind = true;
-        actor.unsetFlag('solicitacao-secreta', 'nextRollIsSecret');
-    }
-});
 
 Hooks.once('ready', () => {
     game.socket.on(socketName, onSocketMessage);

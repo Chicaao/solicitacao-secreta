@@ -2,6 +2,7 @@
     "SS": {
         "RequestButtonTitle": "Request Secret Roll",
         "DialogTitle": "Request Roll: {name}",
-        "CancelButton": "Cancel"
+        "CancelButton": "Cancel",
+        "NoOwnerWarning": "Could not find an active, non-GM owner for the selected token."
     }
 }
